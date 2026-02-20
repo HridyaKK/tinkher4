@@ -1,6 +1,18 @@
 import streamlit as st
 from datetime import datetime
-st.set_page_config(page_title="SafePath", page_icon="🚨")
+st.set_page_config(page_title="SafePath", page_icon="🚨", layout="wide")
+
+# HEADER 
+st.markdown("""
+<h1 style='text-align: center; color: #00C2FF; text-shadow: 0 0 10px rgba(0,194,255,0.6);'>
+🛡️ SafePath – Smart Safety Map
+</h1>
+<p style='text-align: center; font-size:18px; color:#EAF6FF;'>
+Real-time safety visualization based on crime, lighting & crowd levels
+</p>
+""", unsafe_allow_html=True)
+
+st.markdown("---")
 
 # Initialize session state
 if "reports" not in st.session_state:
@@ -10,18 +22,18 @@ if "reports" not in st.session_state:
 st.sidebar.title("SafePath 🚨")
 page = st.sidebar.radio("Go to", ["Home", "Safety Map", "Report Emergency", "Dashboard"])
 
-# Home Page
+    # Home Page
 if page == "Home":
-    st.title("SafePath 🚨")
+    st.subheader("🏠 Home")
     st.subheader("Your Safety Navigation Partner")
     st.write("Welcome to SafePath. Stay aware. Stay safe.")
 
 elif page == "Safety Map":
-    st.title("🗺️ Safety Route Map")
+    st.subheader("🗺️ Safety Map")
 
     import folium
     from streamlit_folium import st_folium
-    from folium.plugins import HeatMap
+        
 
     m = folium.Map(location=[12.9780, 77.6100], zoom_start=12)
 
@@ -97,7 +109,7 @@ elif page == "Safety Map":
     st_folium(m, width=700, height=500)
 # Report Emergency Page
 elif page == "Report Emergency":
-    st.title("🚨 Report Emergency")
+    st.subheader("🚨 Report Emergency")
 
     location = st.text_input("Enter your current location")
     issue = st.text_area("Describe the emergency")
@@ -116,8 +128,7 @@ elif page == "Report Emergency":
 
 # Dashboard Page
 elif page == "Dashboard":
-    st.title("📊 Safety Dashboard")
-
+    st.subheader("📊 Safety Dashboard")
     if len(st.session_state.reports) > 0:
         for i, report in enumerate(st.session_state.reports, start=1):
             st.write(f"### Report {i}")
