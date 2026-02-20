@@ -70,22 +70,25 @@ elif page == "Safety Map":
    
 
     # ---------- LEGEND ----------
+    
     legend_html = """
     <div style="
-    position: fixed;
+    position: absolute;
     bottom: 50px;
     left: 50px;
-    width: 180px;
+    width: 200px;
     background-color: white;
-    border:2px solid grey;
-    z-index:9999;
-    font-size:14px;
+    border: 2px solid grey;
+    z-index: 9999;
+    font-size: 14px;
     padding: 10px;
     border-radius: 8px;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.3);
+    color: black;
     ">
     <b>Safety Legend</b><br>
     <span style="color:green;">●</span> Safe (75+)<br>
-    <span style="color:orange;">●</span> Moderate (50-74)<br>
+    <span style="color:orange;">●</span> Moderate (50–74)<br>
     <span style="color:red;">●</span> Risky (&lt;50)
     </div>
     """
