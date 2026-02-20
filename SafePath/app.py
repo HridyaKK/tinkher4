@@ -21,6 +21,7 @@ elif page == "Safety Map":
 
     import folium
     from streamlit_folium import st_folium
+    
 
     # Center map (example: Bangalore)
     m = folium.Map(location=[12.9780, 77.6100], zoom_start=12)
@@ -51,6 +52,8 @@ elif page == "Safety Map":
 
         score = int(score)
 
+        area["safety_score"] = score
+
         if score >= 75:
             color = "green"
         elif score >= 50:
@@ -60,14 +63,68 @@ elif page == "Safety Map":
 
         folium.CircleMarker(
             location=[area["lat"], area["lon"]],
-            radius=8,
+            radius=10,
             color=color,
             fill=True,
             fill_color=color,
+           # fill_opacity=0.9,
             popup=f"{area['name']} - Safety Score: {score}"
         ).add_to(m)
-        
-    st_folium(m, width=700, height=500)
+
+        from folium.plugins import HeatMap
+
+        # Build heat data
+       heat_data = []
+
+        for area in areas:
+            crime_weight = 0.4
+            lighting_weight = 0.2
+            crowd_weight = 0.2
+            night_penalty = 15 if area["night"] == 1 else 0
+
+            score = (
+                (100 - area["crime"]) * crime_weight +
+                area["lighting"] * lighting_weight +
+                area["crowd"] * crowd_weight
+            ) - night_penalty
+
+            score = int(score)
+
+            intensity = 100 - score
+            heat_data.append([area["lat"], area["lon"], intensity])
+
+       
+
+        # Add heatmap layer
+        HeatMap(
+            heat_data,
+            radius=35,
+            blur=25,
+            min_opacity=0.4
+        ).add_to(m)
+
+        legend_html = """
+        <div style="
+        position: fixed;
+        bottom: 50px;
+        left: 50px;
+        width: 180px;
+        background-color: white;
+        border:2px solid grey;
+        z-index:9999;
+        font-size:14px;
+        padding: 10px;
+        border-radius: 8px;
+        ">
+        <b>Safety Legend</b><br>
+        <span style="color:green;">●</span> Safe (75+)<br>
+        <span style="color:orange;">●</span> Moderate (50-74)<br>
+        <span style="color:red;">●</span> Risky (<50)
+        </div>
+            """
+
+        m.get_root().html.add_child(folium.Element(legend_html))   
+        st_folium(m, width=700, height=500)
 
 # Report Emergency Page
 elif page == "Report Emergency":
