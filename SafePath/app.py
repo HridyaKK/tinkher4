@@ -23,17 +23,33 @@ elif page == "Safety Map":
     from streamlit_folium import st_folium
 
     # Center map (example: Bangalore)
-    m = folium.Map(location=[12.9716, 77.5946], zoom_start=13)
+    m = folium.Map(location=[12.9780, 77.6100], zoom_start=12)
 
     # Dummy safety data
     areas = [
-        {"name": "MG Road", "lat": 12.9750, "lon": 77.6050, "score": 85},
-        {"name": "Shivaji Nagar", "lat": 12.9850, "lon": 77.5950, "score": 45},
-        {"name": "Indiranagar", "lat": 12.9780, "lon": 77.6400, "score": 65},
-    ]
+    {"name": "MG Road", "lat": 12.9750, "lon": 77.6050,
+     "crime": 20, "lighting": 80, "crowd": 70, "night": 0},
+
+    {"name": "Shivaji Nagar", "lat": 12.9850, "lon": 77.5950,
+     "crime": 70, "lighting": 40, "crowd": 60, "night": 1},
+
+    {"name": "Indiranagar", "lat": 12.9780, "lon": 77.6400,
+     "crime": 40, "lighting": 70, "crowd": 75, "night": 0},
+]
 
     for area in areas:
-        score = area["score"]
+        crime_weight = 0.4
+        lighting_weight = 0.2
+        crowd_weight = 0.2
+        night_penalty = 15 if area["night"] == 1 else 0
+
+        score = (
+            (100 - area["crime"]) * crime_weight +
+            area["lighting"] * lighting_weight +
+            area["crowd"] * crowd_weight
+        ) - night_penalty
+
+        score = int(score)
 
         if score >= 75:
             color = "green"
@@ -44,15 +60,15 @@ elif page == "Safety Map":
 
         folium.CircleMarker(
             location=[area["lat"], area["lon"]],
-            radius=10,
-            popup=f"{area['name']} - Safety Score: {score}",
+            radius=8,
             color=color,
             fill=True,
             fill_color=color,
+            popup=f"{area['name']} - Safety Score: {score}"
         ).add_to(m)
-
+        
     st_folium(m, width=700, height=500)
-    
+
 # Report Emergency Page
 elif page == "Report Emergency":
     st.title("🚨 Report Emergency")
