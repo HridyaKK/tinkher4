@@ -25,11 +25,16 @@ st.sidebar.divider()
 page = st.sidebar.radio("Go to", ["Home", "Safety Map", "Report Emergency", "Dashboard"])
 
     # Home Page
+# Home Page
 if page == "Home":
     st.subheader("🏠 Home")
-    st.subheader("Your Safety Navigation Partner")
-    st.write("Welcome to SafePath. Stay aware. Stay safe.")
+    st.caption("Your Safety Navigation Partner")
 
+    st.divider()
+
+    st.info("🛡️ View safety zones on the interactive map.")
+    st.warning("🚨 Report emergencies instantly.")
+    st.success("📊 Track reports in your dashboard.")
 elif page == "Safety Map":
     st.subheader("🗺️ Safety Map")
 
@@ -91,8 +96,9 @@ elif page == "Safety Map":
     bottom: 50px;
     left: 50px;
     width: 200px;
-    background-color: white;
-    border: 2px solid grey;
+    background-color: #112B3C;
+    color: #EAF6FF;
+    border: 1px solid #00C2FF;
     z-index: 9999;
     font-size: 14px;
     padding: 10px;
@@ -108,32 +114,44 @@ elif page == "Safety Map":
     """
 
     m.get_root().html.add_child(folium.Element(legend_html))
-    st_folium(m, width=700, height=500)
+    st_folium(m, use_container_width=True)
 # Report Emergency Page
 elif page == "Report Emergency":
     st.subheader("🚨 Report Emergency")
+    st.caption("Send an alert if you feel unsafe or notice an incident.")
 
-    location = st.text_input("Enter your current location")
-    issue = st.text_area("Describe the emergency")
+    st.divider()
 
-    if st.button("Send Alert"):
+    col1, col2 = st.columns(2)
+
+    with col1:
+        location = st.text_input("📍 Current Location")
+
+    with col2:
+        issue = st.text_area("📝 Describe the Emergency")
+
+    st.divider()
+
+    if st.button("🚨 Send Alert", use_container_width=True):
         if not location or not issue:
             st.error("Please fill in all fields before sending alert.")
         else:
             report = {
-    "location": location,
-    "issue": issue,
-    "time": datetime.now().strftime("%d %b %Y - %I:%M %p")
-}
+                "location": location,
+                "issue": issue,
+                "time": datetime.now().strftime("%d %b %Y - %I:%M %p")
+            }
+
             st.session_state.reports.append(report)
-            st.success("Emergency Alert Sent Successfully!")
+            st.success("✅ Emergency Alert Sent Successfully!")
 
 # Dashboard Page
 elif page == "Dashboard":
     st.subheader("📊 Safety Dashboard")
     if len(st.session_state.reports) > 0:
         for i, report in enumerate(st.session_state.reports, start=1):
-            st.write(f"### Report {i}")
+            st.markdown(f"### 🚨 Report {i}")
+            st.caption(f"🕒 {report['time']}")
             st.write("🕒 Time:", report["time"])
             st.write("📍 Location:", report["location"])
             st.write("📝 Issue:", report["issue"])
