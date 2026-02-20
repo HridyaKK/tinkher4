@@ -1,7 +1,7 @@
 DB_CONFIG = {
     "host": "localhost",
     "user": "root",
-    "password": "hridya@123",
+    "password": "root123",
     "database": "safepath_db",
     "port": 3306
 }
