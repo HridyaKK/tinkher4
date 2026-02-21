@@ -1,116 +1,63 @@
-# 🛡️ SafePath – Smart Women Safety Route Predictor
+SAFEPATH(img.png)
 
----
+# SafePath  
 
-## 🚀 Project Overview
+## Basic Details
 
-**SafePath** is an intelligent route prediction system that prioritizes *safety over speed*. Unlike traditional navigation apps that give the shortest route, SafePath calculates multiple possible routes between a source and destination and recommends the **safest route based on crime, lighting, and crowd-safety metrics**.
+### Team Name: TechRift  
 
-This tool is designed with **women’s safety in mind**, helping users choose safer paths, especially at night or in unfamiliar areas.
+### Team Members
 
----
+  * Member 1: Arshiya Sulfikkar - Muthoot Institute of Technology and Science  
+  * Member 2:Hridya K K - Muthoot Institute of Technology and Science
+### Hosted Project Link
 
-## 🧠 Problem Statement
+https://tinkher4.streamlit.app/ 
 
-Most navigation apps like Google Maps optimize for *shortest* or *fastest* routes — but shortest doesn’t always mean safest.  
-At night or in unfamiliar places, women commonly face:
+### Project Description
 
-- Poorly lit streets  
-- Isolated areas  
-- High-crime zones  
-- Low pedestrian density  
+SafePath is a safety mapping web application that analyzes and visualizes location-based safety scores. It helps users identify safer routes and areas using data-driven insights displayed on an interactive map.
 
-There is no widely available navigation tool that dynamically predicts **safety scores** for routes — SafePath fills that gap.
+### The Problem statement
 
----
+Many people, especially women and students, lack access to reliable information about the safety of specific areas. There is no easy way to visualize and compare safety levels across locations before traveling.
 
-## 🛠️ Features
+### The Solution
 
-### ✔️ MVP (Built in 10 Hours)
+SafePath provides an interactive map that categorizes areas into Safe, Moderate, and Unsafe zones based on calculated safety scores. The platform offers a simple and intuitive visualization to help users make informed travel decisions.
 
-- **Interactive Web App** built with Streamlit  
-- **Input:** Source & Destination area IDs  
-- **Safety Scoring:** Crime, lighting, and crowd data  
-- **Multiple Route Simulation** (2–3 routes)  
-- **Safest Route Recommendation**  
-- **Day/Night Mode Toggle**  
-- **Emergency Button** to suggest nearby safe points  
-- **Color-rendered routes** on the map (Green/Yellow/Red)  
-- **Heatmap visualization (optional)**  
+* * *
 
----
+## Technical Details
 
-## 📁 File Structure
+### Technologies/Components Used
 
----
+For Software:
 
-## 🧩 Technical Logic
+  * Languages used: Python, HTML, CSS  
+  * Frameworks used: Streamlit  
+  * Libraries used: Folium, Pandas  
+  * Tools used: VS Code, Git, GitHub  
+ 
+* * *
 
-### 📊 Safety Score Formula
+## Features
 
-Each area is assigned:
+List the key features of your project:
 
-- Crime score (0–10)
-- Lighting score (0–10)
-- Crowd density (0–10)
-- Night-time multiplier
+  * Feature 1: Interactive safety map visualization  
+  * Feature 2: Color-coded safety legend (Safe, Moderate, Risky)  
+  * Feature 3: Dynamic safety score calculation  
+  * Feature 4: Clean and responsive web interface  
 
-**Safety Score = (10 − Crime Score) + Lighting Score + Crowd Density**
+* * *
 
-At night:
-- Crime score is multiplied → reduces safety score
+## Implementation
+git clone <https://github.com/HridyaKK/tinkher4>
+cd safepath
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.tx
+### For Software:
 
----
-
-## 🚧 How It Works
-
-1. User enters source & destination area IDs  
-2. App simulates multiple route paths  
-3. Each route segment is scored using the safety formula  
-4. Safest route is highlighted
-    - 🟢 Safe
-    - 🟡 Moderate
-    - 🔴 Unsafe  
-5. Emergency button suggests nearest safe area
-
----
-
-## 🔧 Tech Stack
-
-| Component | Technology |
-|-----------|------------|
-| UI | Streamlit |
-| Map | Folium |
-| Data | Dummy CSV dataset |
-| Logic & Routing | Python |
-
----
-
-## 👥 Team & Responsibilities
-
-| Name | Role | Tasks |
-|------|------|-------|
-| **Arshi** | Frontend Developer | • UI/UX in Streamlit<br>• Map rendering<br>• Toggle buttons, heatmap, emergency UI |
-| **Hridya** | Backend Developer | • Safety scoring logic<br>• Route simulation<br>• Emergency alert logic |
-
----
-
-## 🕐 Project Hours Timeline (10-Hour Plan)
-
-| Time Block | Tasks |
-|------------|-------|
-| Hour 1–2 | Setup project & repo |
-| Hour 2–4 | Backend dataset & scoring logic |
-| Hour 2–4 | Frontend UI & inputs |
-| Hour 4–6 | Integrate routes & safety calculation |
-| Hour 6–8 | Map plotting & color coding |
-| Hour 8–9 | Emergency button & safe point |
-| Hour 9–10 | Testing & polishing UX |
-
----
-
-## 📝 Sample Commands
-
-### 🚀 Run App
-```bash
-streamlit run app.py
+#### Installation
