@@ -1,4 +1,4 @@
-![SAFEPATH](img.png)
+![SAFEPATH](image.jpeg)
 
 # SafePath  
 
