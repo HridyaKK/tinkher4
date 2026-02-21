@@ -72,10 +72,10 @@ streamlit run app.py
 ![Safety Map](map.png.jpeg)  
 Interactive safety map showing categorized locations  
 
-![Home page](home.png)  
+![Home page](home.png.jpeg)  
 Home page of the website showing overview of the website  
 
-![Emergancy reporting](eme.png)  
+![Emergancy reporting](eme.png.jpeg)  
 emergancy reporting with time , location and issue
-![Dashboard](dash.png)  
+![Dashboard](dash.png.jpeg)  
 display of the reports by diff users
