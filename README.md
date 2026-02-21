@@ -57,9 +57,17 @@ List the key features of your project:
 ### For Software:
 ###  Installation:
 *git clone <https://github.com/HridyaKK/tinkher4>
+
+
 *cd safepath
+
+
 *python -m venv venv
+
+
 *venv\Scripts\activate
+
+
 *pip install -r requirements.tx
 #### Run:
 streamlit run app.py
@@ -67,7 +75,7 @@ streamlit run app.py
 
 ### For Software:
 
-#### Screenshots (Add at least 3)
+#### Screenshots 
 
 ![Safety Map](map.png.jpeg)  
 Interactive safety map showing categorized locations  
