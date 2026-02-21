@@ -87,3 +87,10 @@ Home page of the website showing overview of the website
 emergancy reporting with time , location and issue
 ![Dashboard](dash.png.jpeg)  
 display of the reports by diff users
+
+### System Architecture:
+
+
+
+### Application Workflow:
+
