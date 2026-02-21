@@ -53,11 +53,29 @@ List the key features of your project:
 * * *
 
 ## Implementation
-git clone <https://github.com/HridyaKK/tinkher4>
-cd safepath
-python -m venv venv
-venv\Scripts\activate
-pip install -r requirements.tx
+
+### For Software:
+###  Installation:
+*git clone <https://github.com/HridyaKK/tinkher4>
+*cd safepath
+*python -m venv venv
+*venv\Scripts\activate
+*pip install -r requirements.tx
+#### Run:
+streamlit run app.py
+## Project Documentation
+
 ### For Software:
 
-#### Installation
+#### Screenshots (Add at least 3)
+
+![Safety Map](map.png)  
+Interactive safety map showing categorized locations  
+
+![Home page](home.png)  
+Home page of the website showing overview of the website  
+
+![Emergancy reporting](eme.png)  
+emergancy reporting with time , location and issue
+![Dashboard](dash.png)  
+display of the reports by diff users
