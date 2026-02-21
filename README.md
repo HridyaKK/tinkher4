@@ -94,3 +94,13 @@ display of the reports by diff users
 
 ### Application Workflow:
 
+### Project Demo
+
+[demo.mp4]
+
+### AI Tools Used
+* Chatgpt
+
+### Team Contributions
+[Arshiya Sulfikkar]: [ Frontend development,]
+[Hridya K K]: [ Backend development.]
