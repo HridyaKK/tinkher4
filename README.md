@@ -96,7 +96,7 @@ display of the reports by diff users
 
 ### Project Demo
 
-[demo1.mp4]
+[demo video](demo1.mp4)
 
 ### AI Tools Used
 * Chatgpt
