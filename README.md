@@ -69,7 +69,7 @@ streamlit run app.py
 
 #### Screenshots (Add at least 3)
 
-![Safety Map](map.png)  
+![Safety Map](map.png.jpeg)  
 Interactive safety map showing categorized locations  
 
 ![Home page](home.png)  
