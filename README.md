@@ -103,6 +103,8 @@ display of the reports by diff users
 
 ### Team Contributions
 [Arshiya Sulfikkar]: [ Frontend development,]
+
+
 [Hridya K K]: [ Backend development.]
 
 ### License
