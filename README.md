@@ -104,3 +104,14 @@ display of the reports by diff users
 ### Team Contributions
 [Arshiya Sulfikkar]: [ Frontend development,]
 [Hridya K K]: [ Backend development.]
+
+### License
+This project is licensed under the [LICENSE_NAME] License - see the LICENSE file for details.
+
+Common License Options:
+
+MIT License (Permissive, widely used)
+Apache 2.0 (Permissive with patent grant)
+GPL v3 (Copyleft, requires derivative works to be open source)
+
+## Made with ❤️ at TinkerHub
