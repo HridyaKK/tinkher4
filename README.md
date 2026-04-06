@@ -68,7 +68,7 @@ List the key features of your project:
 *venv\Scripts\activate
 
 
-*pip install -r requirements.tx
+*pip install -r requirements.txt
 #### Run:
 streamlit run app.py
 ## Project Documentation
@@ -108,12 +108,7 @@ display of the reports by diff users
 [Hridya K K]: [ Backend development.]
 
 ### License
-This project is licensed under the [LICENSE_NAME] License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the LICENSE file for details.
 
-Common License Options:
-
-MIT License (Permissive, widely used)
-Apache 2.0 (Permissive with patent grant)
-GPL v3 (Copyleft, requires derivative works to be open source)
-
+The MIT License is a permissive license that allows anyone to use, modify, and distribute this project with minimal restrictions.
 ## Made with ❤️ at TinkerHub
